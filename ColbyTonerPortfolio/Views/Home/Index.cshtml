@@ -1,0 +1,363 @@
+﻿@* Views/Shared/_Layout.cshtml *@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Colby | Developer Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 80%);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+        }
+
+        #tsparticles, #tsparticles2 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .typed-cursor {
+            display: none;
+        }
+        #hero{
+            width: 100vw;
+        }
+
+        .gradient-border {
+            position: relative;
+            padding: 20px;
+            border-radius: 1rem; 
+            overflow: hidden;
+            z-index: 0;
+        }
+
+            .gradient-border::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                border-radius: 1rem;
+                padding: 4px; 
+                background: linear-gradient(to right, #3b82f6, #06b6d4, #3b82f6);
+                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
+                pointer-events: none;
+                z-index: 1;
+            }
+
+        .gradient-border-content {
+            position: relative;
+            z-index: 2;
+            border-radius: 1rem;
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <div class="content flex flex-col items-center justify-center min-h-screen px-4 text-center space-y-20">
+
+        <section id="hero" class="relative h-screen overflow-hidden flex items-center justify-center text-center">
+
+            <div id="tsparticles" class="absolute inset-0 pointer-events-none z-1"></div>
+
+            <div class="flex flex-col items-center">
+                <h1 id="typed" class="text-4xl md:text-6xl font-bold z-10 min-h-[5rem]"></h1>
+
+                <button onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' })"
+                        class="mt-10 px-6 py-3 border-2 border-blue-400 text-blue-400 rounded-md text-lg font-medium hover:bg-blue-400 hover:text-black transition duration-300 flex items-center gap-2">
+                    View my work
+                    <span class="animate-bounce">↓</span>
+                </button>
+            </div>
+        </section>
+        </div>
+    <nav class="w-full bg-gray-900 bg-opacity-80 shadow-md backdrop-blur-md py-4 z-50 sticky top-0">
+        <div class="w-full px-4">
+            <div class="flex items-center justify-center space-x-10 text-lg font-medium text-white">
+                <a href="#hero" class="hover:text-blue-400 transition">Home</a>
+                <a href="#about" class="hover:text-blue-400 transition">About</a>
+                <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
+                <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <div class="content flex flex-col items-center justify-center min-h-screen px-4 text-center space-y-20">
+        <section id="bottomparticles" class="relative">
+            <div id="tsparticles2" class="absolute inset-0 pointer-events-none z-0"></div>
+
+        <section id="about" class="py-28 px-4 text-white">
+                <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-end justify-between gap-20">
+
+
+                <div class="flex flex-col items-center justify-center text-white gap-6 md:gap-10">
+                    <div class="w-32 h-32 rounded-full border-4 border-white flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="url(#grad)">
+                            <defs>
+                                <linearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
+                                    <stop offset="0%" stop-color="#3b82f6" />
+                                    <stop offset="50%" stop-color="#06b6d4" />
+                                    <stop offset="100%" stop-color="#3b82f6" />
+                                </linearGradient>
+                            </defs>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M5.121 17.804A6 6 0 0112 15a6 6 0 016.879 2.804M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+
+                    <div class="max-w-md text-center md:text-left">
+                        <h2 class="text-3xl font-extrabold">
+                            About <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500">Me</span>
+                        </h2>
+                            <p class="mt-4 text-lg sm:text-[1.1rem] leading-relaxed">
+                                I’m a full stack developer who loves solving real problems, learning how things work, and constantly improving. I work mainly with JavaScript and C#, and I’m always looking for ways to sharpen my skills — whether it’s building cleaner code, learning new frameworks, or experimenting with architecture. I’m not interested in staying comfortable — I’m here to grow.
+                                Outside of coding, I’m usually working on my car, tinkering with something techy, or caring for plants with my girlfriend. I’m all about building — whether it’s in code or life.</p>
+                    </div>
+                </div>
+
+                <div class="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-6">
+                    <div class="gradient-border hover:scale-105 transition transform duration-300 text-center">
+                        <div class="gradient-border-content p-5">
+                            <img src="/images/html.png" alt="HTML" class="h-12 mx-auto mb-2">
+                            <p class="text-md font-semibold">HTML</p>
+                        </div>
+                    </div>
+
+                    <div class="gradient-border hover:scale-105 transition transform duration-300 text-center">
+                        <div class="gradient-border-content p-5">
+                            <img src="/images/css-3.png" alt="CSS" class="h-12 mx-auto mb-2">
+                            <p class="text-md font-semibold">CSS</p>
+                        </div>
+                    </div>
+
+                    <div class="gradient-border hover:scale-105 transition transform duration-300 text-center">
+                        <div class="gradient-border-content p-5">
+                            <img src="/images/js.png" alt="JavaScript" class="h-12 mx-auto mb-2">
+                            <p class="text-md font-semibold">JavaScript</p>
+                        </div>
+                    </div>
+
+                    <div class="gradient-border hover:scale-105 transition transform duration-300 text-center">
+                        <div class="gradient-border-content p-5">
+                            <img src="/images/c-sharp.png" alt="C#" class="h-12 mx-auto mb-2">
+                            <p class="text-md font-semibold">C#</p>
+                        </div>
+                    </div>
+
+                    <div class="gradient-border hover:scale-105 transition transform duration-300 text-center">
+                        <div class="gradient-border-content p-5">
+                            <img src="/images/sql-server.png" alt="SQL Server" class="h-12 mx-auto mb-2">
+                            <p class="text-md font-semibold">SQL Server</p>
+                        </div>
+                    </div>
+
+                    <div class="gradient-border hover:scale-105 transition transform duration-300 text-center">
+                        <div class="gradient-border-content p-5">
+                            <img src="/images/nodejs.png" alt="Node.js" class="h-12 mx-auto mb-2">
+                            <p class="text-md font-semibold">Node.JS</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="projects" class="w-full px-6 py-24 text-white space-y-32">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-extrabold">Projects</h2>
+                <div class="w-32 h-1 mx-auto mt-4 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 rounded-full"></div>
+            </div>
+
+            <!-- Project 1 -->
+            <div class="flex flex-col lg:flex-row items-center gap-20 max-w-[1600px] mx-auto">
+
+                <div class="w-full lg:w-[60%]">
+                    <img src="/images/4thwallcafehome.png"
+                         alt="Project Preview"
+                         class="w-full rounded-2xl shadow-2xl transform transition-transform duration-300 hover:-translate-y-2 hover:scale-[1.02]" />
+                </div>
+                <div class="w-full lg:w-[40%] text-center lg:text-left">
+                    <h3 class="text-5xl font-extrabold mb-3">4thWallCafe</h3>
+                        <p class="text-2xl font-semibold text-gray-300 mb-4">A Full-Stack Café Management System</p>
+                    <p class="text-lg text-gray-400 leading-relaxed mb-8">
+                            A comprehensive café management platform built with .NET 8, featuring a Web API backend and an MVC front end. Handles everything from orders and menu items to carts and user roles. Includes secure JWT-based authentication and role-based access control, following clean architecture principles for scalability and maintainability.
+                    </p>
+                    <div class="flex gap-10 justify-center lg:justify-start">
+                            <a href="https://4thcafe.store/" target="_blank" class="text-lg font-semibold border-b-2 border-blue-500 hover:text-blue-400 transition">LIVE APP</a>
+                            <a href="https://github.com/ctoner2652/4thWallCafe.store" target="_blank" class="text-lg font-semibold border-b-2 border-blue-500 hover:text-blue-400 transition">LEARN MORE</a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Project 2 -->
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-20 max-w-[1600px] mx-auto mt-5 mb-5">
+                <div class="w-full lg:w-[60%]">
+                    <img src="/images/trivliohome.png"
+                         alt="Project Preview"
+                         class="w-full rounded-2xl shadow-2xl transform transition-transform duration-300 hover:-translate-y-2 hover:scale-[1.02]" />
+                </div>
+
+                <div class="w-full lg:w-[40%] text-center lg:text-left">
+                    <h3 class="text-5xl font-extrabold mb-3">Trivl.io</h3>
+                        <p class="text-2xl font-semibold text-gray-300 mb-4">A Real-Time Multiplayer Trivia Game</p>
+                    <p class="text-lg text-gray-400 leading-relaxed mb-8">
+                            A fast-paced, real-time multiplayer trivia game inspired by Skribbl.io. Built with Express, Node.js, MongoDB, and Socket.io, it supports live game sessions, score tracking, and dynamic question flows. Players can join lobbies, compete in timed rounds, and see real-time updates powered by WebSockets.
+                    </p>
+                    <div class="flex gap-10 justify-center lg:justify-start">
+                            <a href="https://trivl.io/home" target="_blank"  class="text-lg font-semibold border-b-2 border-blue-500 hover:text-blue-400 transition">LIVE APP</a>
+                            <a href="https://github.com/ctoner2652/Trivia.IO" target="_blank" class="text-lg font-semibold border-b-2 border-blue-500 hover:text-blue-400 transition">LEARN MORE</a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Project 3 -->
+            <div class="flex flex-col lg:flex-row items-center gap-20 max-w-[1600px] mx-auto mt-5 mb-5">
+
+                <div class="w-full lg:w-[60%]">
+                    <img src="/images/LibraryManagementHome.png"
+                         alt="Project Preview"
+                         class="w-full rounded-2xl shadow-2xl transform transition-transform duration-300 hover:-translate-y-2 hover:scale-[1.02]" />
+                </div>
+                <div class="w-full lg:w-[40%] text-center lg:text-left">
+                    <h3 class="text-5xl font-extrabold mb-3">LibraryManager</h3>
+                        <p class="text-2xl font-semibold text-gray-300 mb-4">A Scalable Library Management System</p>
+                    <p class="text-lg text-gray-400 leading-relaxed mb-8">
+                            A full-stack library management system built with .NET 8 and Entity Framework Core. Provides functionality for managing books, categories, borrowers, and loan transactions, all within a secure, role-based environment. Designed using clean architecture principles for maintainability and future scalability.
+                    </p>
+                    <div class="flex gap-10 justify-center lg:justify-start">
+                        <a href="#" class="text-lg font-semibold border-b-2 border-blue-500 hover:text-blue-400 transition">LIVE APP</a>
+                            <a href="https://github.com/ctoner2652/ASP.Net-LibraryManagement" target="_blank" class="text-lg font-semibold border-b-2 border-blue-500 hover:text-blue-400 transition">LEARN MORE</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+            <section id="contact" class="w-full max-w-xl mx-auto py-24 px-4 text-white">
+                <h2 class="text-4xl font-extrabold text-center mb-8">Get in Touch</h2>
+
+                <form action="https://formspree.io/f/xkgjzray" method="POST" class="flex flex-col gap-6">
+                    <input type="text" name="name" placeholder="Your Name" required
+                           class="p-3 rounded bg-gray-800 text-white border border-gray-600 focus:outline-none focus:border-blue-500 transition" />
+
+                    <input type="email" name="email" placeholder="Your Email" required
+                           class="p-3 rounded bg-gray-800 text-white border border-gray-600 focus:outline-none focus:border-blue-500 transition" />
+
+                    <textarea name="message" placeholder="Your Message" rows="5" required
+                              class="p-3 rounded bg-gray-800 text-white border border-gray-600 focus:outline-none focus:border-blue-500 transition resize-none"></textarea>
+
+                    <button type="submit"
+                            class="bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 hover:from-blue-600 hover:to-cyan-500 text-black font-semibold py-3 px-6 rounded-lg shadow-lg transition">
+                        Send Message
+                    </button>
+                </form>
+            </section>
+
+        </section>
+    </div>
+
+
+
+
+    <footer class="w-full bg-gray-900 py-6 mt-16">
+        <div class="flex justify-center items-center gap-6 text-white text-xl">
+            <a href="https://github.com/ctoner2652" target="_blank" class="hover:text-blue-400 transition">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.207 11.387.6.113.793-.26.793-.577 0-.285-.01-1.04-.016-2.04-3.338.726-4.042-1.614-4.042-1.614-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.996.108-.775.418-1.305.76-1.604-2.665-.305-5.466-1.332-5.466-5.931 0-1.31.467-2.381 1.235-3.221-.124-.304-.535-1.527.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 013.003-.404c1.02.005 2.048.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.649.243 2.872.119 3.176.77.84 1.233 1.911 1.233 3.221 0 4.609-2.803 5.624-5.475 5.921.43.372.814 1.102.814 2.222 0 1.606-.015 2.898-.015 3.293 0 .319.192.694.8.576C20.565 21.796 24 17.298 24 12c0-6.627-5.373-12-12-12z" />
+                </svg>
+            </a>
+            <a href="mailto:colbyjacob8@gmail.com" class="hover:text-blue-400 transition">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                    <path d="M1.5 4.5h21v15h-21v-15zm1.5 2.25v10.5h18v-10.5l-9 6-9-6z" />
+                </svg>
+            </a>
+
+        </div>
+    </footer>
+
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    function runTypedSequence() {
+      const typedElement = document.querySelector("#typed");
+      const step1 = new Typed("#typed", {
+        strings: ["Hey, I'm <span class='text-blue-400'>Colby.</span>"],
+        typeSpeed: 60,
+        backSpeed: 30,
+        backDelay: 1000,
+        startDelay: 500,
+        showCursor: true,
+        smartBackspace: false,
+        loop: false,
+        contentType: "html",
+        onComplete: () => {
+          setTimeout(() => {
+            step1.destroy();
+            const step2 = new Typed("#typed", {
+              strings: ["I am super awe-", "I’m a <span class='text-blue-400'>full stack developer.</span>"],
+              typeSpeed: 60,
+              backSpeed: 80,
+              backDelay: 200,
+              showCursor: true,
+              smartBackspace: false,
+              loop: false,
+              contentType: "html",
+              onComplete: () => {
+                setTimeout(() => {
+                  step2.destroy();
+                  runTypedSequence();
+                }, 1500);
+              }
+            });
+          }, 1000); 
+        }
+      });
+    }
+    runTypedSequence();
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles-engine@3.2.1/tsparticles.engine.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@3.2.1/tsparticles.bundle.min.js"></script>
+
+<script>
+       document.addEventListener("DOMContentLoaded", async () => {
+      try {
+        console.log("Loading tsparticles...");
+        await tsParticles.load({
+          id: "tsparticles",
+          url: "/js/default.json"
+        });
+        console.log("✅ tsparticles loaded");
+
+        console.log("Now loading tsparticles2...");
+        await tsParticles.load({
+          id: "tsparticles2",
+          url: "/js/default2.json"
+        });
+        console.log("✅ tsparticles2 loaded");
+      } catch (err) {
+        console.error("❌ tsParticles load error:", err);
+      }
+    });
+</script>
